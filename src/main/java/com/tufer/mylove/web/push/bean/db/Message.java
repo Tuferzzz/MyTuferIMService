@@ -1,5 +1,6 @@
 package com.tufer.mylove.web.push.bean.db;
 
+import com.tufer.mylove.web.push.bean.api.message.MessageCreateModel;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -8,14 +9,19 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author Tufer Email:1126179195@qq.com
  * @version 1.0.0
  */
 @Entity
 @Table(name = "TB_MESSAGE")
 public class Message {
+    // 发送给人的
+    public static final int RECEIVER_TYPE_NONE = 1;
+    // 发送给群的
+    public static final int RECEIVER_TYPE_GROUP = 2;
+
     public static final int TYPE_STR = 1; // 字符串类型
-    public static final int TYPE_PIC = 1; // 图片类型
+    public static final int TYPE_PIC = 2; // 图片类型
     public static final int TYPE_FILE = 3; // 文件类型
     public static final int TYPE_AUDIO = 4; // 语音类型
 
@@ -82,6 +88,33 @@ public class Message {
     private Group group;
     @Column(updatable = false, insertable = false)
     private String groupId;
+
+
+    public Message() {
+
+    }
+
+    // 普通朋友的发送的构造函数
+    public Message(User sender, User receiver, MessageCreateModel model) {
+        this.id = model.getId();
+        this.content = model.getContent();
+        this.attach = model.getAttach();
+        this.type = model.getType();
+
+        this.sender = sender;
+        this.receiver = receiver;
+    }
+
+    // 发送给群的构造函数
+    public Message(User sender, Group group, MessageCreateModel model) {
+        this.id = model.getId();
+        this.content = model.getContent();
+        this.attach = model.getAttach();
+        this.type = model.getType();
+
+        this.sender = sender;
+        this.group = group;
+    }
 
 
     public String getId() {

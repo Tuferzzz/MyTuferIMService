@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 /**
  * 消息推送历史记录表
  *
- * @author qiujuer Email:qiujuer@live.cn
+ * @author Tufer Email:1126179195@qq.com
  * @version 1.0.0
  */
 @Entity

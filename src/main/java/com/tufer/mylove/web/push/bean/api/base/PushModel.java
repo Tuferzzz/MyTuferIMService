@@ -12,7 +12,7 @@ import java.util.List;
  * 每次推送的详细数据是：把实体数组进行Json操作，然后发送Json字符串
  * 这样做的目的是：减少多次推送，如果有多个消息需要推送可以合并进行
  *
- * @author qiujuer Email:qiujuer.live.cn
+ * @author Tufer Email:1126179195@qq.com
  */
 @SuppressWarnings("WeakerAccess")
 public class PushModel {

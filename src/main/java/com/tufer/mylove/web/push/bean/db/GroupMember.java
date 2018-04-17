@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
+ * @author Tufer Email:1126179195@qq.com
  * @version 1.0.0
  */
 @Entity
