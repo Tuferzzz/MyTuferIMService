@@ -41,7 +41,7 @@ public class UserFactory {
                 .uniqueResult());
     }
 
-    // 通过Id找到User
+    // 通过Name找到User
     public static User findById(String id) {
         // 通过Id查询，更方便
         return Hib.query(session -> session.get(User.class, id));
@@ -99,7 +99,8 @@ public class UserFactory {
             // 那么需要单点登录，让之前的设备退出账户，
             // 给之前的设备推送一条退出消息
             if (Strings.isNullOrEmpty(user.getPushId())) {
-                // TODO 推送一个退出消息
+                // 推送一个退出消息
+                PushFactory.pushLogout(user, user.getPushId());
             }
 
             // 更新新的设备Id
@@ -212,6 +213,7 @@ public class UserFactory {
         return TextUtil.encodeBase64(password);
     }
 
+
     /**
      * 获取我的联系人的列表
      *
@@ -316,5 +318,4 @@ public class UserFactory {
         });
 
     }
-
 }
