@@ -32,15 +32,29 @@ dependencies {
 
     // 数据库操作框架
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
-    compile 'org.hibernate:hibernate-core:5.2.9.Final'
+    compile 'org.hibernate:hibernate-core:5.4.1.Final'
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
-    compile 'org.hibernate:hibernate-entitymanager:5.2.9.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.4.1.Final'
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-c3p0
-    compile 'org.hibernate:hibernate-c3p0:5.2.9.Final'
+    compile 'org.hibernate:hibernate-c3p0:5.4.1.Final'
+
+
+
 
     // MySQL 驱动库
     // https://mvnrepository.com/artifact/mysql/mysql-connector-java
-    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+
+
+    //JAXB API是java EE 的API，因此在java SE 9.0 中不再包含这个 Jar 包。
+    //java 9 中引入了模块的概念，默认情况下，Java SE中将不再包含java EE 的Jar包
+    //而在 java 6/7 / 8 时关于这个API 都是捆绑在一起的
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0'
+    compile group: 'com.sun.activation', name: 'javax.activation', version: '1.2.0'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+

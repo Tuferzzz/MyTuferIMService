@@ -12,7 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
- * @author qiujuer
+ * @author Tufer
  */
 // 127.0.0.1/api/account/...
 @Path("/account")
